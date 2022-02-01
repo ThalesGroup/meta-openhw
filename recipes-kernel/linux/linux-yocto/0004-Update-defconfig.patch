@@ -1,0 +1,8 @@
+From 1de8a2721576ad4fc8fc0987c12ef111414bd8cc Mon Sep 17 00:00:00 2001
+From: Jonathan Richard Robert Kimmitt <jrrk2@cl.cam.ac.uk>
+Date: Wed, 15 May 2019 11:20:34 +0100
+Subject: [PATCH 4/7] Update defconfig
+
+---
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
