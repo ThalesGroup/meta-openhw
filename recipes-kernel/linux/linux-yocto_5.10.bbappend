@@ -6,6 +6,7 @@ SRC_URI += "file://defconfig \
             file://0005-Update-.gitignore.patch \
             file://0006-Add-Xilinx-emaclite.patch \
             file://0007-Update-for-linux-5.10.patch \
+            file://0001-cva6-genesys2-add-32-and-64-bits-dts.patch \
             "
 
 COMPATIBLE_MACHINE:append:cva6-genesys2 = "|cva6-genesys2"
