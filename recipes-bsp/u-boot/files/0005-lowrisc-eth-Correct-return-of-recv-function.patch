@@ -1,0 +1,67 @@
+From b05c56c53b338c3c6bd5d6aef09e2f6904bd6554 Mon Sep 17 00:00:00 2001
+From: Kevin Eyssartier <kevin.eyssartier@thalesgroup.com>
+Date: Wed, 16 Mar 2022 15:13:56 +0100
+Subject: [PATCH] lowrisc eth: Correct return of recv function
+
+---
+ drivers/net/lowrisc/lowrisc_100MHz.c | 23 ++++++-----------------
+ 1 file changed, 6 insertions(+), 17 deletions(-)
+
+diff --git a/drivers/net/lowrisc/lowrisc_100MHz.c b/drivers/net/lowrisc/lowrisc_100MHz.c
+index fd6b114b55..697f9a995c 100644
+--- a/drivers/net/lowrisc/lowrisc_100MHz.c
++++ b/drivers/net/lowrisc/lowrisc_100MHz.c
+@@ -652,7 +652,6 @@ static int lowrisc_open(struct udevice *ndev)
+  */
+ static int lowrisc_send(struct udevice *ndev, void *ptr, int len)
+ {
+-	printf("lowrisc-eth: send call\n");
+     struct net_local *priv = dev_get_priv(ndev);
+     int rslt;
+ 	//~ if (mutex_is_locked(&priv->lock))
+@@ -672,39 +671,29 @@ static int lowrisc_send(struct udevice *ndev, void *ptr, int len)
+ 	return 0; // NETDEV_TX_OK
+ }
+ 
++uint8_t __attribute__ ((aligned (8))) framebuffer[ETH_FRAME_LEN + ETH_FCS_LEN];
+ static int lowrisc_recv(struct udevice *dev, int flags, uchar **packetp)
+ {
+-    int rsr, buf;
++    int rsr, len=0, buf;
+     struct net_local *priv = dev_get_priv(dev);
+     rsr = eth_read(priv, RSR_OFFSET);
+     buf = rsr & RSR_RECV_FIRST_MASK;
+     /* Check if there is Rx Data available */
+     if (rsr & RSR_RECV_DONE_MASK)
+     {
+-        int len = eth_read(priv, RPLR_OFFSET+((buf&7)<<3)) - 4; /* discard FCS bytes ?? */
++        len = eth_read(priv, RPLR_OFFSET+((buf&7)<<3)) - 4; /* discard FCS bytes ?? */
+         if ((len >= 60) && (len <= ETH_FRAME_LEN + ETH_FCS_LEN))
+         {
+             int start = RXBUFF_OFFSET/8 + ((buf&7)<<8);
+-            eth_copyin(priv, *packetp, len, start);
++            eth_copyin(priv, framebuffer, len, start);
+         }
+ 
+         /* acknowledge, even if an error occurs */
+         eth_write(priv, RSR_OFFSET, ++buf);
+-        rsr = eth_read(priv, RSR_OFFSET);
+-
+-        printf("lowrisc-eth: received frame\n");
+-        unsigned int* printP = (unsigned int*)(*packetp);
+-        printf("0x%X 0x%X 0x%X 0x%X\n", printP[0],printP[1],printP[2],printP[3]);
++        *packetp = framebuffer;
+     }
+ 
+-    if (rsr & RSR_RECV_DONE_MASK)
+-    {
+-        return 1;
+-    }
+-    else
+-    {
+-        return 0;
+-    }
++    return len;
+ }
+ 
+ // static int lowrisc_mii_ioctl(struct net_device *netdev, struct ifreq *ifr, int cmd)
