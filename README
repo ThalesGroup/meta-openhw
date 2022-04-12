@@ -44,7 +44,7 @@ The login is "root", no password is needed.
 IV. Tests done
 ==============
 
-The core-image-minimal has been tested on the cv64a6 genesys2 board with release [3ddf797](https://github.com/openhwgroup/cva6/tree/3ddf797e95923fd11113c8e443046105dfbf8843).
+The core-image-minimal has been tested on the cv64a6 genesys2 board with release 3ddf797 (https://github.com/openhwgroup/cva6/tree/3ddf797e95923fd11113c8e443046105dfbf8843).
 
 V. Todo
 =======
