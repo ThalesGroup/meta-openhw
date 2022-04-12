@@ -1,39 +1,56 @@
+# meta-cva6
+
 This README file contains information on the contents of the meta-cva6 layer.
 
-Please see the corresponding sections below for details.
+This layer is compatible with honister.
 
-Dependencies
-============
+## Dependencies
 
-https://github.com/riscv/meta-riscv
+This layer depends on:
 
-Patches
-=======
+* URI: https://github.com/openembedded/openembedded-core
+  * branch: master
+  * revision: HEAD
+* URI: https://github.com/openembedded/bitbake
+  * branch: master
+  * revision: HEAD
+* URI: https://github.com/riscv/meta-riscv
+  * branch: master  
+  * revision: HEAD
 
-Please submit any patches against the meta-cva6 layer to the xxxx mailing list (xxxx@zzzz.org)
-and cc: the maintainer:
+## Adding the meta-cva6 layer to your build
 
-Maintainer: Kevin Eyssartier <kevin.eyssartier@thalesgroup.com>
+### Create workspace
+```text
+mkdir cva6-yocto && cd cva6-yocto
+repo init -u https://github.com/riscv/meta-riscv  -b master -m tools/manifests/cva6-yocto.xml
+repo sync
+repo start work --all
+```
 
-Table of Contents
-=================
+### Setup Build Environment
+```text
+. ./meta-riscv/setup.sh
+```
 
-  I. Adding the meta-cva6 layer to your build
- II. Build and flash your image
-III. Flashing to SD card
- IV. Tests done
-  V. Todo
+### Add meta-cva layer
+```text
+bitbake-layers add-layer ../meta-cva6
+```
 
+## Available Machines
 
-I. Adding the meta-cva6 layer to your build
-===========================================
+This layer is available for:
 
-Run ```bitbake-layers add-layer meta-cva6```
+* cva6-genesys2: The Digilent FPGA board with the bitstream generated from the [cva6 corev-apu](https://github.com/openhwgroup/cva6).
 
-II. Build and flash your image
-==============================
+## Build and flash your image
 
-Run 'MACHINE=cva6-genesys2 bitbake core-image-minimal'
+To generate a console-only image for the cva6-genesys2:
+```text
+MACHINE=cva6-genesys2 bitbake core-image-minimal
+```
+Image files will be located in build/tmp-glibc/deploy/images/cva6-genesys2.
 
 Warning, you need to find the correct device image and fill it in the dd's of= parameter:
 
@@ -41,13 +58,11 @@ Warning, you need to find the correct device image and fill it in the dd's of= p
 
 The login is "root", no password is needed.
 
-IV. Tests done
-==============
+## Tests done
 
-The core-image-minimal has been tested on the cv64a6 genesys2 board with release [3ddf797](https://github.com/openhwgroup/cva6/tree/3ddf797e95923fd11113c8e443046105dfbf8843).
+The core-image-minimal has been tested only for the 64bits version of corev-apu with release [3ddf797](https://github.com/openhwgroup/cva6/tree/3ddf797e95923fd11113c8e443046105dfbf8843).
 
-V. Todo
-=======
+## Todo
 
 - Correction to the u-boot low-risc. TFTP image loading is failing.
 - Accelerate the Linux boot time. Suspicion of slow low-risc driver link availability, which blocks depending systemD services.
