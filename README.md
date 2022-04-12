@@ -23,7 +23,7 @@ This layer depends on:
 ### Create workspace
 ```text
 mkdir cva6-yocto && cd cva6-yocto
-repo init -u https://github.com/riscv/meta-riscv  -b master -m tools/manifests/cva6-yocto.xml
+repo init -u https://github.com/eyssartk/meta-cva6  -b master -m tools/manifests/cva6-yocto.xml
 repo sync
 repo start work --all
 ```
@@ -67,4 +67,3 @@ The core-image-minimal has been tested only for the 64bits version of corev-apu 
 - Correction to the u-boot low-risc. TFTP image loading is failing.
 - Accelerate the Linux boot time. Suspicion of slow low-risc driver link availability, which blocks depending systemD services.
 - Accelerate Linux login time.
-
