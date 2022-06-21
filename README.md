@@ -23,7 +23,7 @@ This layer depends on:
 ### Create workspace
 ```text
 mkdir cva6-yocto && cd cva6-yocto
-repo init -u https://github.com/eyssartk/meta-cva6  -b master -m tools/manifests/cva6-yocto.xml
+repo init -u https://git.sti.s3g-labs.trt/u1056/meta-openhw -b master -m tools/manifests/openhw-yocto.xml
 repo sync
 repo start work --all
 ```
@@ -35,7 +35,7 @@ repo start work --all
 
 ### Add meta-cva layer
 ```text
-bitbake-layers add-layer ../meta-cva6
+bitbake-layers add-layer ../meta-openhw
 ```
 
 ## Available Machines
