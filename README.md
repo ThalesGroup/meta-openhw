@@ -1,4 +1,4 @@
-# meta-cva6
+# meta-openhw
 
 This README file contains information on the contents of the meta-cva6 layer.
 
@@ -30,12 +30,7 @@ repo start work --all
 
 ### Setup Build Environment
 ```text
-. ./meta-riscv/setup.sh
-```
-
-### Add meta-cva layer
-```text
-bitbake-layers add-layer ../meta-openhw
+. ./meta-openhw/setup.sh
 ```
 
 ## Available Machines
