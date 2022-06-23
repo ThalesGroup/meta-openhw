@@ -62,3 +62,6 @@ The core-image-minimal has been tested only for the 64bits version of corev-apu 
 - Correction to the u-boot low-risc. TFTP image loading is failing.
 - Accelerate the Linux boot time. Suspicion of slow low-risc driver link availability, which blocks depending systemD services.
 - Accelerate Linux login time.
+06/2022:
+- Boot is faster with the Busybox init manager instead of systemD.
+- Using the busybox64.conf from cva6-sdk repository.
