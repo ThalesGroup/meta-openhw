@@ -69,11 +69,12 @@ require conf/distro/include/security_flags.inc
 
 INHERIT += "uninative"
 
-DISTRO_FEATURES:append = " largefile ptest multiarch pam "
+DISTRO_FEATURES:append = " largefile multiarch pam "
 #DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
 #VIRTUAL-RUNTIME_init_manager = "systemd"
 INIT_MANAGER = "mdev-busybox"
 HOSTTOOLS_NONFATAL:append = " ssh"
+SYSVINIT_ENABLED_GETTYS = ""
 EOF
 
 echo "To build an image run"
