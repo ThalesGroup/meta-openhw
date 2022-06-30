@@ -12,7 +12,7 @@ SRC_URI = "git://github.com/openhwgroup/u-boot.git;protocol=https;branch=cva6 \
            file://0005-lowrisc-eth-Correct-return-of-recv-function.patch \
            file://0006-CV64A6-add-ext4-and-fat-functionalities.patch \
            file://0007-CV64A6-add-fitImage-support.patch \
-           file://0001-CV32A6-FIT-FAT-EXT4-LOWRISC-defconfig.patch"
+           file://0001-CV32A6-FIT-FAT-EXT4-LOWRISC-defconfig.patch \
            file://devtool-fragment.cfg \
            "
 SRCREV = "cc5fd9916a630cacb30bed2474bcf5df6c5801ae"
