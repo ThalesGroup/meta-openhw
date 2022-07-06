@@ -6,6 +6,7 @@ FILESEXTRAPATHS:prepend:cv64a6-genesys2 := "${THISDIR}/${PN}/cv64a6:"
 FILESEXTRAPATHS:prepend:cv32a6-genesys2 := "${THISDIR}/${PN}/cv32a6:"
 
 SRC_URI += "file://defconfig \
+            file://devtool-fragment.cfg \
             file://0001-Incorporate-lowrisc-drivers-for-latest-kernel-releas.patch \
             file://0005-Update-.gitignore.patch \
             file://0006-Add-Xilinx-emaclite.patch \
