@@ -33,8 +33,8 @@ index 000000000000..41640be51f0d
 +/ {
 +  #address-cells = <2>;
 +  #size-cells = <2>;
-+  compatible = "eth,ariane-bare-dev";
-+  model = "eth,ariane-bare";
++  compatible = "eth,cva6-bare-dev";
++  model = "eth,cva6-bare";
 +  chosen {
 +    stdout-path = "/soc/uart@10000000:115200";
 +    //tick-timer =  "/cpus/cpu@0";
@@ -48,7 +48,7 @@ index 000000000000..41640be51f0d
 +      device_type = "cpu";
 +      reg = <0>;
 +      status = "okay";
-+      compatible = "eth, ariane", "riscv";
++      compatible = "eth, cva6", "riscv";
 +      riscv,isa = "rv32ima";
 +      mmu-type = "riscv,sv32";
 +      tlb-split;
@@ -75,7 +75,7 @@ index 000000000000..41640be51f0d
 +  L26: soc {
 +    #address-cells = <2>;
 +    #size-cells = <2>;
-+    compatible = "eth,ariane-bare-soc", "simple-bus";
++    compatible = "eth,cva6-bare-soc", "simple-bus";
 +    ranges;
 +    clint@2000000 {
 +      compatible = "riscv,clint0";
@@ -184,8 +184,8 @@ index 000000000000..b699c7bbb041
 +/ {
 +  #address-cells = <2>;
 +  #size-cells = <2>;
-+  compatible = "eth,ariane-bare-dev";
-+  model = "eth,ariane-bare";
++  compatible = "eth,cva6-bare-dev";
++  model = "eth,cva6-bare";
 +  chosen {
 +    stdout-path = "/soc/uart@10000000:115200";
 +    //tick-timer =  "/cpus/cpu@0";
@@ -199,7 +199,7 @@ index 000000000000..b699c7bbb041
 +      device_type = "cpu";
 +      reg = <0>;
 +      status = "okay";
-+      compatible = "eth, ariane", "riscv";
++      compatible = "eth, cva6", "riscv";
 +      riscv,isa = "rv64imafdc";
 +      mmu-type = "riscv,sv39";
 +      tlb-split;
@@ -226,7 +226,7 @@ index 000000000000..b699c7bbb041
 +  L26: soc {
 +    #address-cells = <2>;
 +    #size-cells = <2>;
-+    compatible = "eth,ariane-bare-soc", "simple-bus";
++    compatible = "eth,cva6-bare-soc", "simple-bus";
 +    ranges;
 +    clint@2000000 {
 +      compatible = "riscv,clint0";
