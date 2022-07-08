@@ -14,6 +14,7 @@ SRC_URI = "git://github.com/openhwgroup/u-boot.git;protocol=https;branch=cva6 \
            file://0007-CV64A6-add-fitImage-support.patch \
            file://0001-CV32A6-FIT-FAT-EXT4-LOWRISC-defconfig.patch \
            file://devtool-fragment.cfg \
+           file://0001-rename-ariane-to-cva6-in-the-dts.patch \
            "
 SRCREV = "cc5fd9916a630cacb30bed2474bcf5df6c5801ae"
 SRC_URI[sha256sum] = "d8947969a5834b333afa2a8de9d079a74eb73675d3a7fe56e6a6edd5efae18f9"
