@@ -20,6 +20,14 @@ This layer depends on:
 
 ## Adding the meta-cva6 layer to your build
 
+First install the repo tool
+```text
+mkdir ${HOME}/bin
+curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ${HOME}/bin/repo
+chmod a+x ${HOME}/bin/repo
+PATH=${PATH}:~/bin
+```
+
 ### Create workspace
 ```text
 mkdir cva6-yocto && cd cva6-yocto
@@ -37,31 +45,27 @@ repo start work --all
 
 This layer is available for:
 
-* cva6-genesys2: The Digilent FPGA board with the bitstream generated from the [cva6 corev-apu](https://github.com/openhwgroup/cva6).
+* cv[32|64]a6-genesys2: The Digilent FPGA board with the bitstream generated from the [cva6 corev-apu](https://github.com/openhwgroup/cva6).
 
 ## Build and flash your image
 
-To generate a console-only image for the cva6-genesys2:
+To generate a console-only image for the cv32a6-genesys2:
 ```text
-MACHINE=cva6-genesys2 bitbake core-image-minimal
+MACHINE=cv32a6-genesys2 bitbake core-image-minimal
 ```
-Image files will be located in build/tmp-glibc/deploy/images/cva6-genesys2.
+Image files will be located in build/tmp-glibc/deploy/images/cv32a6-genesys2.
 
 Warning, you need to find the correct device image and fill it in the dd's of= parameter:
 
-```gunzip -c build/tmp-glibc/deploy/images/cva6-genesys2/core-image-minimal-cva6-genesys2.wic.gz | sudo dd of=/dev/sd$ bs=1M iflag=fullblock oflag=direct conv=fsync```
+```gunzip -c build/tmp-glibc/deploy/images/cv32a6-genesys2/core-image-minimal-cv32a6-genesys2.wic.gz | sudo dd of=/dev/sd$ bs=1M iflag=fullblock oflag=direct conv=fsync```
 
 The login is "root", no password is needed.
 
 ## Tests done
 
-The core-image-minimal has been tested only for the 64bits version of corev-apu with release [3ddf797](https://github.com/openhwgroup/cva6/tree/3ddf797e95923fd11113c8e443046105dfbf8843).
+The core-image-minimal has been tested for the 32 and 64bits version of corev-apu with release [3ddf797](https://github.com/openhwgroup/cva6/tree/3ddf797e95923fd11113c8e443046105dfbf8843).
 
 ## Todo
 
 - Correction to the u-boot low-risc. TFTP image loading is failing.
-- Accelerate the Linux boot time. Suspicion of slow low-risc driver link availability, which blocks depending systemD services.
-- Accelerate Linux login time.
-06/2022:
-- Boot is faster with the Busybox init manager instead of systemD.
-- Using the busybox64.conf from cva6-sdk repository.
+
