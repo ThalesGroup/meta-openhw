@@ -23,7 +23,7 @@ This layer depends on:
 First install the repo tool
 ```text
 mkdir ${HOME}/bin
-curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ${HOME}/bin/repo
+curl https://storage.googleapis.com/git-repo-downloads/repo > ${HOME}/bin/repo
 chmod a+x ${HOME}/bin/repo
 PATH=${PATH}:~/bin
 ```
