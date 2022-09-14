@@ -57,7 +57,9 @@ Image files will be located in build/tmp-glibc/deploy/images/cv32a6-genesys2.
 
 Warning, you need to find the correct device image and fill it in the dd's of= parameter:
 
-```gunzip -c build/tmp-glibc/deploy/images/cv32a6-genesys2/core-image-minimal-cv32a6-genesys2.wic.gz | sudo dd of=/dev/sd$ bs=1M iflag=fullblock oflag=direct conv=fsync```
+```text
+gunzip -c build/tmp-glibc/deploy/images/cv32a6-genesys2/core-image-minimal-cv32a6-genesys2.wic.gz | sudo dd of=/dev/sd$ bs=1M iflag=fullblock oflag=direct conv=fsync
+```
 
 The login is "root", no password is needed.
 
