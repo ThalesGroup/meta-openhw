@@ -1,0 +1,22 @@
+From e96aa65c86fff086908255edf38b736489c2d1c9 Mon Sep 17 00:00:00 2001
+From: Kevin Eyssartier <kevin.eyssartier@thalesgroup.com>
+Date: Tue, 4 Oct 2022 18:37:50 +0200
+Subject: [PATCH] Correct install command
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 05ef506..164e69e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -5,7 +5,7 @@ PROGNAME = tetris$(EXE)
+ # Uncomment to change the default.  (Only used in Unix-like systems.)
+ #HISCORE_FILENAME = /var/games/vitetris-hiscores
+ 
+-INSTALL = install -oroot -groot
++INSTALL = install
+ 
+ default: build
+ 	@echo Done.
