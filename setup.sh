@@ -51,12 +51,11 @@ if [ -e $CONFFILE ]; then
 fi
 cat <<EOF > $CONFFILE
 MACHINE ?= "${MACHINE}"
-#IMAGE_FEATURES += "tools-debug"
-#IMAGE_FEATURES += "tools-tweaks"
-#IMAGE_FEATURES += "dbg-pkgs"
 # rootfs for debugging
 #IMAGE_GEN_DEBUGFS = "1"
 #IMAGE_FSTYPES_DEBUGFS = "tar.gz"
+EXTRA_IMAGE_FEATURES:append = " tools-debug"
+EXTRA_IMAGE_FEATURES:append = " debug-tweaks"
 EXTRA_IMAGE_FEATURES:append = " ssh-server-dropbear"
 EXTRA_IMAGE_FEATURES:append = " package-management"
 PACKAGECONFIG:append:pn-qemu-native = " sdl"
@@ -75,6 +74,8 @@ DISTRO_FEATURES:append = " largefile multiarch pam "
 INIT_MANAGER = "mdev-busybox"
 HOSTTOOLS_NONFATAL:append = " ssh"
 SYSVINIT_ENABLED_GETTYS = ""
+IMAGE_INSTALL:append = " vitetris"
+IMAGE_INSTALL:append = " pacman4console"
 EOF
 
 echo "To build an image run"
