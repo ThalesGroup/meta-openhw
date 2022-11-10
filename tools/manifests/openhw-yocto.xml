@@ -3,7 +3,7 @@
 <manifest>
   <remote name="openembedded" fetch="https://github.com/openembedded/" />
   <remote name="riscv" fetch="https://github.com/riscv/" />
-  <remote name="openhwgroup" fetch="https://git.sti.s3g-labs.trt/u1056/" />
+  <remote name="openhwgroup" fetch="https://gitlab.thalesdigital.io/kevin.eyssartier/" />
   <default remote="openembedded" revision="master" />
 
   <project name="meta-riscv" remote="riscv" path="meta-riscv" revision="9fb725c93549849bcf5623325f6ac256fcd56e1e" />

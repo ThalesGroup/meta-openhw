@@ -80,14 +80,13 @@ EOF
 
 echo "To build an image run"
 echo "---------------------------------------------------"
-echo "MACHINE=qemuriscv64 bitbake core-image-full-cmdline"
+echo "MACHINE=cv64a6-genesys2 bitbake core-image-minimal"
 echo "---------------------------------------------------"
 echo ""
 echo "Buildable machine info"
 echo "---------------------------------------------------"
-echo "* qemuriscv64: The 64-bit RISC-V machine"
-echo "* qemuriscv32: The 32-bit RISC-V machine"
-echo "* cva6-genesys2: The OpenHW CVA6 SoC on Genesys2"
+echo "* cv64a6-genesys2: The OpenHW CV64A6 SoC on Genesys2"
+echo "* cv32a6-genesys2: The OpenHW CV32A6 SoC on Genesys2"
 echo "---------------------------------------------------"
 
 # start build

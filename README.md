@@ -31,7 +31,7 @@ PATH=${PATH}:~/bin
 ### Create workspace
 ```text
 mkdir cva6-yocto && cd cva6-yocto
-repo init -u https://git.sti.s3g-labs.trt/u1056/meta-openhw -b master -m tools/manifests/openhw-yocto.xml
+repo init -u https://gitlab.thalesdigital.io/kevin.eyssartier/meta-openhw -b master -m tools/manifests/openhw-yocto.xml
 repo sync
 repo start work --all
 ```
@@ -69,5 +69,5 @@ The core-image-minimal has been tested for the 32 and 64bits version of corev-ap
 
 ## Todo
 
-- Correction to the u-boot low-risc. TFTP image loading is failing.
+- The u-boot low-risc driver is not functional. TFTP image loading is failing.
 
