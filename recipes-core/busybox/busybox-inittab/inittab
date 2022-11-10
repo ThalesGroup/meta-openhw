@@ -1,7 +1,5 @@
 # This is run first except when booting in single-user mode.
 
-#KEY TEST
-
 # Startup the system
 ::sysinit:/bin/mount -t proc proc /proc
 ::sysinit:/bin/mount -t sysfs sysfs /sys
