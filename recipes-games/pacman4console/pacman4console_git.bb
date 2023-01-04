@@ -3,6 +3,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
 
 SRC_URI = "git://github.com/YoctoForBeaglebone/pacman4console;protocol=https;branch=master \
            file://0001-Makfile-correction.patch \
+           file://0001-Differentiate-build-path-and-execute-path.patch \
            "
 
 PV = "1.0+git${SRCPV}"

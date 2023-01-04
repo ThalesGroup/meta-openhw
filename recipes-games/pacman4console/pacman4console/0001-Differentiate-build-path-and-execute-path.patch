@@ -1,0 +1,54 @@
+From 42c71a24986c0a5ebae4df830d710ea1a5bd3786 Mon Sep 17 00:00:00 2001
+From: Kevin Eyssartier <kevin.eyssartier@thalesgroup.com>
+Date: Thu, 10 Nov 2022 11:41:41 +0100
+Subject: [PATCH] Differentiate build path and execute path
+
+---
+ Makefile | 21 +++++++++++----------
+ 1 file changed, 11 insertions(+), 10 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 367b44e..bfb2eb8 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,6 +1,7 @@
+ prefix ?= "/usr/local"
+ bindir=$(prefix)/bin
+-datarootdir=$(prefix)/share
++datarootinstall=$(prefix)/share
++datarootdir ?= /usr/local/share
+ 
+ all:
+ 	@echo $(prefix)
+@@ -11,22 +12,22 @@ install:	all
+ 	mkdir -p $(DESTDIR)$(bindir)
+ 	cp pacman $(DESTDIR)$(bindir)
+ 	cp pacmanedit $(DESTDIR)$(bindir)
+-	mkdir -p $(DESTDIR)$(datarootdir)/pacman
+-	cp -fR Levels/ $(DESTDIR)$(datarootdir)/pacman/
++	mkdir -p $(DESTDIR)$(datarootinstall)/pacman
++	cp -fR Levels/ $(DESTDIR)$(datarootinstall)/pacman/
+ 	-chown root:games $(DESTDIR)$(bindir)/pacman
+-	-chown root:games $(DESTDIR)$(datarootdir)/pacman -R
++	-chown root:games $(DESTDIR)$(datarootinstall)/pacman -R
+ 	chmod 750 $(DESTDIR)$(bindir)/pacman
+ 	chmod 750 $(DESTDIR)$(bindir)/pacmanedit
+-	chmod 750 $(DESTDIR)$(datarootdir)/pacman/ -R
++	chmod 750 $(DESTDIR)$(datarootinstall)/pacman/ -R
+ 
+ uninstall:
+ 	rm -f $(DESTDIR)$(bindir)/pacman
+ 	rm -f $(DESTDIR)$(bindir)/pacmanedit
+-	rm -f $(DESTDIR)$(datarootdir)/pacman/Levels/level0[1-9].dat
+-	rm -f $(DESTDIR)$(datarootdir)/pacman/Levels/README
+-	rm -f $(DESTDIR)$(datarootdir)/pacman/Levels/template.dat
+-	if [ -e $(DESTDIR)$(datarootdir)/pacman/Levels/ ] ; then rmdir $(DESTDIR)$(datarootdir)/pacman/Levels/ ; fi
+-	if [ -e $(DESTDIR)$(datarootdir)/pacman/ ] ; then rmdir $(DESTDIR)$(datarootdir)/pacman/ ; fi
++	rm -f $(DESTDIR)$(datarootinstall)/pacman/Levels/level0[1-9].dat
++	rm -f $(DESTDIR)$(datarootinstall)/pacman/Levels/README
++	rm -f $(DESTDIR)$(datarootinstall)/pacman/Levels/template.dat
++	if [ -e $(DESTDIR)$(datarootinstall)/pacman/Levels/ ] ; then rmdir $(DESTDIR)$(datarootinstall)/pacman/Levels/ ; fi
++	if [ -e $(DESTDIR)$(datarootinstall)/pacman/ ] ; then rmdir $(DESTDIR)$(datarootinstall)/pacman/ ; fi
+ 
+ clean:
+ 	rm -f pacman
