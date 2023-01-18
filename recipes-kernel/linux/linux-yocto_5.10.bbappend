@@ -1,14 +1,14 @@
-SRCREV_machine:cv64a6-genesys2 ?= "659361086d8b2ee2c8318f390029a350a6e7fb61"
-SRCREV_machine:cv32a6-genesys2 ?= "659361086d8b2ee2c8318f390029a350a6e7fb61"
+SRCREV_machine:cv32a6-genesys2 ?= "548da672c895a591adea1cab71ad57a80eb976c3"
+SRCREV_machine:cv64a6-genesys2 ?= "548da672c895a591adea1cab71ad57a80eb976c3"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += "file://0001-Incorporate-lowrisc-drivers-for-latest-kernel-releas.patch \
-            file://0005-Update-.gitignore.patch \
-            file://0006-Add-Xilinx-emaclite.patch \
-            file://0007-Update-for-linux-5.10.patch \
-            file://0001-cva6-genesys2-add-32-and-64-bits-dts.patch \
-           "
+SRC_URI = "git://github.com/openhwgroup/linux;protocol=https;branch=linux-5.10.y;name=machine; \
+           git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=yocto-5.10;destsuffix=${KMETA}"
+
+LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
+
+SRC_URI += "file://0001-cva6-genesys2-add-32-and-64-bits-dts.patch"
 
 SRC_URI:append:cv32a6-genesys2 = " file://cv32a6-fragment.cfg \
                                    file://cv32a6/defconfig \
