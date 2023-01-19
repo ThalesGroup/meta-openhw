@@ -1,4 +1,4 @@
-From f94c3fb011ccec14333675c1612c834de740ad66 Mon Sep 17 00:00:00 2001
+From 2e97577c4b51e64cf6f620f0dc3ba5dbb5035c31 Mon Sep 17 00:00:00 2001
 From: Kevin Eyssartier <kevin.eyssartier@thalesgroup.com>
 Date: Wed, 23 Mar 2022 14:58:49 +0100
 Subject: [PATCH] CV64A6: add fitImage support
@@ -8,10 +8,10 @@ Subject: [PATCH] CV64A6: add fitImage support
  1 file changed, 1 insertion(+)
 
 diff --git a/configs/openhwgroup_cv64a6_genesysII_defconfig b/configs/openhwgroup_cv64a6_genesysII_defconfig
-index a19ec909d0..7e8dbe2d51 100644
+index ea7db8548d..43e4715684 100644
 --- a/configs/openhwgroup_cv64a6_genesysII_defconfig
 +++ b/configs/openhwgroup_cv64a6_genesysII_defconfig
-@@ -42,3 +42,4 @@ CONFIG_SPI=y
+@@ -43,3 +43,4 @@ CONFIG_SPI=y
  CONFIG_XILINX_SPI=y
  CONFIG_CMD_EXT4=y
  CONFIG_CMD_FAT=y

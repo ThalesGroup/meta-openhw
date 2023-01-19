@@ -1,7 +1,7 @@
-From 920075ecfa679976fde9beaa718036afe3e69d52 Mon Sep 17 00:00:00 2001
+From 74252889e9cce17c5d148540819ae55937f3bf70 Mon Sep 17 00:00:00 2001
 From: Kevin Eyssartier <kevin.eyssartier@thalesgroup.com>
 Date: Wed, 9 Feb 2022 15:03:17 +0100
-Subject: Increase binary size
+Subject: [PATCH] Increase binary size
 
 ---
  configs/openhwgroup_cv32a6_genesysII_defconfig | 2 +-
@@ -34,6 +34,3 @@ index 3a7d2a8af5..03abd149cb 100644
  
  #define CONFIG_SYS_MAX_FLASH_BANKS 1
  #define CONFIG_SYS_FLASH_BASE 0x0
--- 
-2.25.1
-

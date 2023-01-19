@@ -1,4 +1,4 @@
-From f3a2843e772093d593bdbb6304ce9f80cf956069 Mon Sep 17 00:00:00 2001
+From 14bb10dd6fd2073140e706a6816082417a9d0f75 Mon Sep 17 00:00:00 2001
 From: Kevin Eyssartier <kevin.eyssartier@thalesgroup.com>
 Date: Fri, 8 Jul 2022 15:44:55 +0200
 Subject: [PATCH] rename ariane to cva6 in the dts
