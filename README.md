@@ -58,7 +58,7 @@ Image files will be located in build/tmp-glibc/deploy/images/cv32a6-genesys2.
 Warning, you need to find the correct device image and fill it in the dd's of= parameter:
 
 ```text
-gunzip -c build/tmp-glibc/deploy/images/cv32a6-genesys2/core-image-minimal-cv32a6-genesys2.wic.gz | sudo dd of=/dev/sd$ bs=1M iflag=fullblock oflag=direct conv=fsync
+gunzip -c build/tmp-glibc/deploy/images/cv32a6-genesys2/core-image-minimal-cv32a6-genesys2.wic.gz | sudo dd of=/dev/sd$ bs=1M iflag=fullblock oflag=direct conv=fsync status=progress
 ```
 
 The login is "root", no password is needed.
@@ -67,7 +67,4 @@ The login is "root", no password is needed.
 
 The core-image-minimal has been tested for the 32 and 64bits version of corev-apu with release [3ddf797](https://github.com/openhwgroup/cva6/tree/3ddf797e95923fd11113c8e443046105dfbf8843).
 
-## Todo
-
-- The u-boot low-risc driver is not functional. TFTP image loading is failing.
-
+TFTP boot from u-boot is working.
