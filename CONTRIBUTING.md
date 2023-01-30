@@ -1,30 +1,17 @@
-Describe in this file:
-
-- team organization, roles, communication
-- the rules to be respected by your future contributors
-
 # Contributing guidelines
 
 ## Team organization
 
-### Roles
+[Kevin EYSSARTIER](https://github.com/eyssartk) Lead development
 
 ## How to become a contributor
 
-### Contributor License Agreements
+PR are welcomed !
 
-### Contributing code
+You can propose contribution in any License you want. No specification on your part will be evaluated as an MIT License contribution.
 
 ## Pull Request Checklist
 
-### License
-
-### Coding style
-
 ### Testing
 
-#### Running sanity check
-
-#### Running unit tests
-
-### Issues management
+Testing is performed on the GENESYS2 board with the COREV-APU from the [CVA6 repository](https://github.com/OpenHWGroup/cva6).
