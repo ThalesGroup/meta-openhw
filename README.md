@@ -18,6 +18,10 @@ This layer depends on:
   * branch: master  
   * revision: HEAD
 
+## System requirements
+
+The system requirements for yocto are described [here](https://docs.yoctoproject.org/3.4/ref-manual/system-requirements.html).
+
 ## Adding the meta-cva6 layer to your build
 
 First install the repo tool
