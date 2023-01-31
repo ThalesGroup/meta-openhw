@@ -31,7 +31,7 @@ PATH=${PATH}:~/bin
 ### Create workspace
 ```text
 mkdir cva6-yocto && cd cva6-yocto
-repo init -u https://gitlab.thalesdigital.io/kevin.eyssartier/meta-openhw -b master -m tools/manifests/openhw-yocto.xml
+repo init -u https://github.com/ThalesGroup/meta-openhw -b master -m tools/manifests/openhw-yocto.xml
 repo sync
 repo start work --all
 ```
