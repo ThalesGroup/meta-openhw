@@ -1,3 +1,5 @@
+**All development for Yocto CVA6 is now done in the [OpenHWGroup repo](https://github.com/openhwgroup/meta-cva6-yocto).**
+
 # meta-openhw
 
 This README file contains information on the contents of the meta-cva6 layer.
